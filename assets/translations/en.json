@@ -3,5 +3,9 @@
   "login": "Login",
   "email_or_phone": "Email or phone",
   "password": "Password",
-  "welcome": "Welcome to Syria App"
+  "welcome": "Welcome to Syria App",
+  "field_required": "This field is required",
+  "sign_up": "Sign Up",
+  "confirm_password": "Confirm Password",
+  "signup_success": "Account registered successfully"
 }
