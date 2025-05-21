@@ -38,6 +38,10 @@ dependencies:
     sdk: flutter
   easy_localization: ^3.0.7+1
   flutter_gen: ^5.10.0
+  image_picker: ^1.0.7
+  image_picker_for_web: ^3.0.4
+  image: ^4.1.7
+  universal_io: ^2.2.2
 
 dev_dependencies:
   flutter_test:
