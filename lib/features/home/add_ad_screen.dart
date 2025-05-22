@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../models/ad.dart';
 import '../widgets/add_ad_image_picker.dart';
@@ -63,22 +64,18 @@ class _AddAdScreenState extends State<AddAdScreen> {
               ),
               const SizedBox(height: 32),
               ElevatedButton.icon(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    // يمكنك الآن استخدام _adImageBytes (الصورة النهائية المضغوطة)
-                    // إذا كنت سترفعها لسيرفر أو تخزنها مع الإعلان
-                    // مثال مبدئي:
                     final ad = Ad(
-                      id: DateTime.now().millisecondsSinceEpoch.toString(),
+                      id: '', // Firestore سيعطيك id لاحقًا
                       title: title,
                       description: description,
-                      // الصورة يمكنك إرسالها كبيانات base64 أو رفعها في API
-                      imageUrl: '', // ستحددها لاحقًا حسب تخزينك الفعلي
+                      imageUrl: imageUrl, // أو رابط الصورة من الجهاز/الكاميرا
                       price: double.tryParse(price) ?? 0,
                     );
-                    widget.onAdAdded(ad);
                     Navigator.pop(context);
+                    await saveAdToFirestore(ad);
                   }
                 },
                 icon: const Icon(Icons.add),
@@ -91,4 +88,14 @@ class _AddAdScreenState extends State<AddAdScreen> {
       ),
     );
   }
+}
+
+Future<void> saveAdToFirestore(Ad ad) async {
+  await FirebaseFirestore.instance.collection('ads').add({
+    'title': ad.title,
+    'description': ad.description,
+    'imageUrl': ad.imageUrl,
+    'price': ad.price,
+    'createdAt': FieldValue.serverTimestamp(),
+  });
 }

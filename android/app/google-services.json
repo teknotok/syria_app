@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686344377592",
+    "project_id": "syriaapp-d1fa0",
+    "storage_bucket": "syriaapp-d1fa0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686344377592:android:c26e2b4b9e8796a2e3570d",
+        "android_client_info": {
+          "package_name": "com.example.syria_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBODbjpor6KB3qaUUm63AifUOkOFsgl_EM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

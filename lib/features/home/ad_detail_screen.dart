@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import '../../models/ad.dart';
 
 class AdDetailScreen extends StatelessWidget {
-  final Ad ad;
+  final Map<String, dynamic> adData;
 
-  const AdDetailScreen({super.key, required this.ad});
+  const AdDetailScreen({super.key, required this.adData});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(ad.title),
-      ),
+      appBar: AppBar(title: Text(adData['title'] ?? '')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -19,7 +17,7 @@ class AdDetailScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
-                ad.imageUrl,
+                adData['imageUrl'],
                 height: 200,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -31,27 +29,19 @@ class AdDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text(
-              ad.title,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-            ),
+            Text(adData['title'] ?? '', style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
             const SizedBox(height: 12),
-            Text(
-              ad.description,
-              style: const TextStyle(fontSize: 18),
-            ),
+            Text(adData['description'], style: const TextStyle(fontSize: 18)),
             const SizedBox(height: 24),
             Text(
-              'السعر: ${ad.price} \$',
+              'السعر: ${adData['price'] ?? ''} \$',
               style: const TextStyle(fontSize: 22, color: Colors.blueAccent, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 36),
             ElevatedButton.icon(
               onPressed: () {
                 // لاحقاً: إضافة مراسلة صاحب الإعلان
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("هذه الخاصية قيد التطوير...")),
-                );
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("هذه الخاصية قيد التطوير...")));
               },
               icon: const Icon(Icons.chat),
               label: const Text("مراسلة البائع"),

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -27,12 +28,33 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>syria_app</title>
   <link rel="manifest" href="manifest.json">
 </head>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA74PbZ1k-7Z4Hbfn2iYwgc3oh-uhPKVdM",
+    authDomain: "syriaapp-d1fa0.firebaseapp.com",
+    projectId: "syriaapp-d1fa0",
+    storageBucket: "syriaapp-d1fa0.firebasestorage.app",
+    messagingSenderId: "686344377592",
+    appId: "1:686344377592:web:600167b1b746e44ee3570d"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
 <body>
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>
